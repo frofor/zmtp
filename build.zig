@@ -15,11 +15,14 @@ pub fn build(b: *std.Build) void {
         .target = target,
     });
 
+    const ui_mod = b.addModule("ui", .{ .root_source_file = b.path("src/ui.zig") });
+
     const command_mod = b.addModule("command", .{
         .root_source_file = b.path("src/command.zig"),
         .imports = &.{
             .{ .name = "zmtp", .module = mod },
             .{ .name = "libmtp", .module = libmtp_mod },
+            .{ .name = "ui", .module = ui_mod },
         },
     });
 
@@ -33,6 +36,7 @@ pub fn build(b: *std.Build) void {
                 .{ .name = "zmtp", .module = mod },
                 .{ .name = "libmtp", .module = libmtp_mod },
                 .{ .name = "command", .module = command_mod },
+                .{ .name = "ui", .module = ui_mod },
             },
             .link_libc = true,
         }),

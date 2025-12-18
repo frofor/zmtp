@@ -6,8 +6,8 @@ pub fn init() void {
 }
 
 pub fn open() OpenError![*c]c.LIBMTP_mtpdevice_t {
-    var raw: [*c]c.LIBMTP_raw_device_t = null;
-    var len: c_int = 0;
+    var raw: [*c]c.LIBMTP_raw_device_t = undefined;
+    var len: c_int = undefined;
     const err = c.LIBMTP_Detect_Raw_Devices(&raw, &len);
     if (err != c.LIBMTP_ERROR_NONE) {
         return error.DeviceNotFound;
