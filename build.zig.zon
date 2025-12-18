@@ -1,0 +1,13 @@
+.{
+    .name = .zmtp,
+    .version = "0.0.0",
+    .fingerprint = 0x7e9f0a595f397ded,
+    .minimum_zig_version = "0.15.2",
+    .paths = .{
+        "src",
+        "build.zig",
+        "build.zig.zon",
+        "README.md",
+        "COPYING",
+    },
+}
