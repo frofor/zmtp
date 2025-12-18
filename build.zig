@@ -31,6 +31,7 @@ pub fn build(b: *std.Build) void {
             .optimize = optimize,
             .imports = &.{
                 .{ .name = "zmtp", .module = mod },
+                .{ .name = "libmtp", .module = libmtp_mod },
                 .{ .name = "command", .module = command_mod },
             },
             .link_libc = true,
